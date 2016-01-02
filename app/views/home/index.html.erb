@@ -1,0 +1,14 @@
+<h1 class="text-center" id="country_name" ><%= @country.name %></h1>
+<div class="text-center" id="link_button" >
+  <%= link_to 'Random', root_path, class: 'btn btn-large btn-primary', data: { disable_with: 'loading...'} %>
+  <%= google_map_to(@country.name) %>
+</div>
+<div class="row">
+  <% @medias.each do |media| %>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <%= link_to media.link, target: "_blank", class: 'thumbnail' do %>
+        <%= image_tag(media.images.low_resolution.url, class: 'img-rounded') %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
